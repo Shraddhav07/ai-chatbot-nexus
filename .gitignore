@@ -1,0 +1,31 @@
+# Environment variables and credentials
+.env
+*.env
+!.env.example
+
+# Python virtual environments
+venv/
+**/venv/
+ENV/
+env/
+.venv/
+
+# Byte-compiled / optimized files
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Agent system generated files
+.system_generated/

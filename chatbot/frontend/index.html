@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus AI — Dynamic Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Ambient Lighting Glows -->
+  <div class="ambient-canvas">
+    <div class="orb orb-violet"></div>
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-rose"></div>
+  </div>
+
+  <main class="app-shell">
+    <!-- Top Navigation & Header -->
+    <header class="app-header">
+      <div class="brand-cluster">
+        <div class="brand-avatar" id="brandAvatar">
+          <span class="avatar-emoji" id="avatarEmoji">✨</span>
+          <span class="pulsing-status" id="statusDot" title="Backend Status"></span>
+        </div>
+        <div class="brand-meta">
+          <div class="brand-title-row">
+            <h1>Nexus<span class="gradient-text">AI</span></h1>
+            <span class="badge-tag" id="personaBadge">Teacher Assistant</span>
+          </div>
+          <p class="brand-sub" id="backendStatus">Connecting to AI engine...</p>
+        </div>
+      </div>
+
+      <!-- Controls & Persona Switcher -->
+      <div class="header-actions">
+        <div class="persona-selector-wrap">
+          <label for="personaSelect" class="sr-only">Active Persona</label>
+          <select id="personaSelect" class="persona-select">
+            <option value="teacher">🧑‍🏫 Teacher Assistant</option>
+            <option value="summarizer">📄 Text Summarizer</option>
+            <option value="coach">💼 Interview Coach</option>
+            <option value="travel">✈️ Travel Guide</option>
+            <option value="assistant">🤖 General Assistant</option>
+          </select>
+        </div>
+        <button id="clearChatBtn" class="action-btn" title="Clear chat history">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span>Clear</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Persona Quick Chips Strip -->
+    <nav class="persona-chips-bar" aria-label="Quick Persona Switcher">
+      <button class="chip active" data-persona="teacher">🧑‍🏫 Teacher</button>
+      <button class="chip" data-persona="summarizer">📄 Summarizer</button>
+      <button class="chip" data-persona="coach">💼 Interview Coach</button>
+      <button class="chip" data-persona="travel">✈️ Travel Guide</button>
+      <button class="chip" data-persona="assistant">🤖 Assistant</button>
+    </nav>
+
+    <!-- Message Stream -->
+    <section class="chat-viewport" id="chatViewport">
+      <div class="welcome-card" id="welcomeCard">
+        <div class="welcome-icon">💡</div>
+        <h2>Welcome to Nexus AI</h2>
+        <p id="welcomeDescription">
+          Your personal <strong>Teacher Assistant</strong> is active. Ask any conceptual question, request step-by-step guides, or explore complex topics simplified.
+        </p>
+        <div class="quick-prompts" id="quickPrompts">
+          <button class="prompt-chip" data-prompt="Explain how neural networks learn in simple terms">Explain Neural Networks</button>
+          <button class="prompt-chip" data-prompt="What is the difference between synchronous and asynchronous code?">Sync vs Async Code</button>
+          <button class="prompt-chip" data-prompt="Teach me how recursion works with a real-world analogy">Explain Recursion</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Input Deck -->
+    <footer class="input-deck">
+      <form id="chatForm" class="composer-form">
+        <div class="composer-container">
+          <textarea 
+            id="userInput" 
+            placeholder="Type your prompt here..." 
+            rows="1" 
+            autocomplete="off"
+            required
+          ></textarea>
+          <button type="submit" id="sendBtn" class="send-button" title="Send Message">
+            <svg class="send-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="composer-footer">
+          <span class="hint-text">Press <strong>Enter</strong> to send • <strong>Shift + Enter</strong> for newline</span>
+          <span class="status-indicator-pill" id="modelPill">AI Online</span>
+        </div>
+      </form>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
